@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>task2.consumer</groupId>
-    <artifactId>Task2Consumer</artifactId>
+    <artifactId>smm_Task2Consumer</artifactId>
     <packaging>bundle</packaging>
     <version>1.0.0</version>
 

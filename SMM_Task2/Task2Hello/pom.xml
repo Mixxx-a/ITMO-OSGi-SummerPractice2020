@@ -5,9 +5,9 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>task2.hello</groupId>
-    <artifactId>HelloOSGI</artifactId>
+    <artifactId>smm_Task2HelloOSGI</artifactId>
     <packaging>bundle</packaging>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
 
     <name>OSGI Hello</name>
     <url>http://maven.apache.org</url>
