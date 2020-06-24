@@ -4,13 +4,12 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>task2.hello</groupId>
-    <artifactId>smm_Task2HelloOSGI</artifactId>
+    <groupId>task2.helloservice</groupId>
+    <artifactId>smm_Task2HelloSevice</artifactId>
     <packaging>bundle</packaging>
-    <version>1.0.1</version>
+    <version>1.1.1</version>
 
-    <name>OSGI Hello</name>
-    <url>http://maven.apache.org</url>
+    <name>OSGI Hello Service</name>
 
     <dependencies>
         <dependency>
@@ -29,12 +28,13 @@
                 <extensions>true</extensions>
                 <configuration>
                     <instructions>
-                        <Bundle-SymbolicName>osgi.hello</Bundle-SymbolicName>
-                        <Bundle-Name>OSGI Hello</Bundle-Name>
-                        <Bundle-Version>1.0.1</Bundle-Version>
-                        <Bundle-Activator>task2.hello.Activator</Bundle-Activator>
+                        <Bundle-SymbolicName>ru.sladkov.task2service</Bundle-SymbolicName>
+                        <Bundle-Name>OSGI Hello Service</Bundle-Name>
+                        <Bundle-Version>1.1.1</Bundle-Version>
+                        <Bundle-Activator>ru.sladkov.task2service.realisation.Activator</Bundle-Activator>
                         <Import-Package>org.osgi.framework</Import-Package>
-                        <Export-Package>task2.hello</Export-Package>
+                        <Export-Package>ru.sladkov.task2service.interfaces</Export-Package>
+                        <Private-Package>ru.sladkov.task2service.realisation</Private-Package>
                     </instructions>
                 </configuration>
             </plugin>

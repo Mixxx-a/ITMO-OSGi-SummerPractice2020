@@ -4,13 +4,12 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>task2.consumer</groupId>
-    <artifactId>smm_Task2Consumer</artifactId>
+    <groupId>task2.helloclient</groupId>
+    <artifactId>smm_Task2HelloClient</artifactId>
     <packaging>bundle</packaging>
-    <version>1.0.0</version>
+    <version>1.1.1</version>
 
-    <name>OSGI Hello consumer</name>
-    <url>http://maven.apache.org</url>
+    <name>OSGI Hello Client</name>
 
     <dependencies>
         <dependency>
@@ -29,12 +28,11 @@
                 <extensions>true</extensions>
                 <configuration>
                     <instructions>
-                        <Bundle-SymbolicName>osgi.helloconsumer</Bundle-SymbolicName>
-                        <Bundle-Name>OSGI Hello consumer</Bundle-Name>
-                        <Bundle-Version>1.0.0</Bundle-Version>
-                        <Bundle-Activator>task2.consumer.Activator</Bundle-Activator>
-                        <Import-Package>org.osgi.framework, task2.hello</Import-Package>
-                        <Export-Package>task2.consumer</Export-Package>
+                        <Bundle-SymbolicName>ru.sladkov.task2client</Bundle-SymbolicName>
+                        <Bundle-Name>OSGI Hello Client</Bundle-Name>
+                        <Bundle-Version>1.1.1</Bundle-Version>
+                        <Bundle-Activator>ru.sladkov.task2client.realisation.Activator</Bundle-Activator>
+                        <Import-Package>org.osgi.framework, ru.sladkov.task2service.interfaces</Import-Package>
                     </instructions>
                 </configuration>
             </plugin>
