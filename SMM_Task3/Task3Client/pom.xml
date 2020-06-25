@@ -33,6 +33,7 @@
                         <Bundle-Version>${project.version}</Bundle-Version>
                         <Bundle-Activator>${project.groupId}.realisation.Activator</Bundle-Activator>
                         <Import-Package>org.osgi.framework, ru.sladkov.task3service.interfaces</Import-Package>
+                        <Private-Package>${project.groupId}.realisation</Private-Package>
                     </instructions>
                 </configuration>
             </plugin>
