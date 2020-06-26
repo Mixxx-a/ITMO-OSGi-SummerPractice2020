@@ -17,7 +17,7 @@ public class Activator implements BundleActivator {
         System.out.println("Client started");
 
         currentDate.printDate();
-        RandomNumber.printRandom();
+        //RandomNumber.printRandom();
         count.addSecond();
         count.printSeconds();
 

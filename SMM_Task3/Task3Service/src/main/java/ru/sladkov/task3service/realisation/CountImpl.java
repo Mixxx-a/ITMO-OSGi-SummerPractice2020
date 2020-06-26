@@ -1,9 +1,14 @@
 package ru.sladkov.task3service.realisation;
 
-import org.apache.felix.scr.annotations.Component;
+import org.apache.felix.scr.annotations.*;
 import ru.sladkov.task3service.interfaces.Count;
 
-@Component
+@Service(value= Count.class)
+@Component(immediate=true)
+@Properties({
+        @Property(name="service.description", value="Count"),
+        @Property(name="service.vendor", value="Sladkov M. M.")
+})
 public class CountImpl implements Count {
     private int seconds = 0;
 
