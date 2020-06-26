@@ -1,9 +1,10 @@
-package ru.sladkov.task3service.realisation;
+package ru.sladkov.task3service.activation;
 
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.ServiceRegistration;
 import ru.sladkov.task3service.interfaces.*;
+import ru.sladkov.task3service.realisation.*;
 
 public class Activator implements BundleActivator {
 
