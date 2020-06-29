@@ -21,6 +21,7 @@
 
 # IntelliJ IDEA files and folders #
 .idea/
+.target/
 *.iml
 
 
