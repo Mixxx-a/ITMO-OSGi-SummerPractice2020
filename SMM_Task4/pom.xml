@@ -9,7 +9,7 @@
     <packaging>bundle</packaging>
     <version>1.1.0</version>
 
-    <name>OSGI Hello command creation </name>
+    <name>OSGI Hello command creation</name>
 
     <dependencies>
         <dependency>
