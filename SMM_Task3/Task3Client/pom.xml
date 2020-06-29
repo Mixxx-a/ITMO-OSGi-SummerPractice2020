@@ -7,14 +7,19 @@
     <groupId>ru.sladkov.task3client</groupId>
     <artifactId>smm_Task3Client</artifactId>
     <packaging>bundle</packaging>
-    <version>2.0.0</version>
+    <version>3.0.1</version>
 
-    <name>OSGI Count Client </name>
+    <name>OSGI Hello Annotation Client </name>
 
     <dependencies>
         <dependency>
             <groupId>org.apache.felix</groupId>
             <artifactId>org.osgi.core</artifactId>
+            <version>1.4.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.osgi</groupId>
+            <artifactId>org.osgi.service.component.annotations</artifactId>
             <version>1.4.0</version>
         </dependency>
     </dependencies>
@@ -31,9 +36,8 @@
                         <Bundle-SymbolicName>${project.groupId}</Bundle-SymbolicName>
                         <Bundle-Name>${project.name}</Bundle-Name>
                         <Bundle-Version>${project.version}</Bundle-Version>
-                        <Bundle-Activator>${project.groupId}.realisation.Activator</Bundle-Activator>
-                        <Import-Package>org.osgi.framework, ru.sladkov.task3service.interfaces</Import-Package>
-                        <Private-Package>${project.groupId}.realisation</Private-Package>
+                        <Bundle-Activator>${project.groupId}.Activator</Bundle-Activator>
+                        <Import-Package>org.osgi.framework, ru.sladkov.task3service</Import-Package>
                     </instructions>
                 </configuration>
             </plugin>

@@ -7,7 +7,7 @@
     <groupId>ru.sladkov.task3service</groupId>
     <artifactId>smm_Task3Service</artifactId>
     <packaging>bundle</packaging>
-    <version>2.0.1</version>
+    <version>3.0.1</version>
 
     <name>OSGI Multi-Service</name>
 
@@ -18,19 +18,9 @@
             <version>1.4.0</version>
         </dependency>
         <dependency>
-            <groupId>org.apache.felix</groupId>
-            <artifactId>maven-scr-plugin</artifactId>
-            <version>1.26.4</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.felix</groupId>
-            <artifactId>org.apache.felix.scr</artifactId>
-            <version>2.1.20</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.felix</groupId>
-            <artifactId>org.apache.felix.scr.annotations</artifactId>
-            <version>1.12.0</version>
+            <groupId>org.osgi</groupId>
+            <artifactId>org.osgi.service.component.annotations</artifactId>
+            <version>1.4.0</version>
         </dependency>
     </dependencies>
 
@@ -46,14 +36,13 @@
                         <Bundle-SymbolicName>${project.groupId}</Bundle-SymbolicName>
                         <Bundle-Name>${project.name}</Bundle-Name>
                         <Bundle-Version>${project.version}</Bundle-Version>
-                        <Bundle-Activator>${project.groupId}.realisation.Activator</Bundle-Activator>
+                        <Bundle-Activator>${project.groupId}.Activator</Bundle-Activator>
                         <Import-Package>org.osgi.framework</Import-Package>
-                        <Export-Package>${project.groupId}.interfaces</Export-Package>
-                        <Private-Package>${project.groupId}.realisation, ${project.groupId}.activation</Private-Package>
+                        <Export-Package>${project.groupId}</Export-Package>
+                        <Private-Package>${project.groupId}.implementation</Private-Package>
                     </instructions>
                 </configuration>
             </plugin>
-
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -62,7 +51,6 @@
                     <target>14</target>
                 </configuration>
             </plugin>
-
         </plugins>
     </build>
 

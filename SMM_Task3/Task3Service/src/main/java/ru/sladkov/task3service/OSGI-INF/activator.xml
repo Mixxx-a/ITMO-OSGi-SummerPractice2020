@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<scr:component name="activator"
-               xmlns:scr="http://www.osgi.org/xmlns/scr/v1.0.0">
-    <scr:implementation class="ru.sladkov.task3service.activation.Activator"/>
-</scr:component>
