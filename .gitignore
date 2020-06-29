@@ -20,7 +20,7 @@
 *.rar
 
 # IntelliJ IDEA files and folders #
-*/.idea/
+.idea/
 *.iml
 
 
