@@ -1,8 +1,8 @@
-package ru.sladkov.task4command.realisation;
+package ru.sladkov.task4command;
 
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
-import ru.sladkov.task4command.interfaces.Hello;
+import ru.sladkov.task4command.implementation.HelloImpl;
 
 import java.util.Hashtable;
 

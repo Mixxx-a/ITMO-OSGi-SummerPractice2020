@@ -1,6 +1,6 @@
-package ru.sladkov.task4command.realisation;
+package ru.sladkov.task4command.implementation;
 
-import ru.sladkov.task4command.interfaces.Hello;
+import ru.sladkov.task4command.Hello;
 
 public class HelloImpl implements Hello {
 

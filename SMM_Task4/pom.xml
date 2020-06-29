@@ -7,7 +7,7 @@
     <groupId>ru.sladkov.task4command</groupId>
     <artifactId>smm_Task4Command</artifactId>
     <packaging>bundle</packaging>
-    <version>1.0.1</version>
+    <version>1.1.0</version>
 
     <name>OSGI Hello command creation </name>
 
@@ -31,10 +31,10 @@
                         <Bundle-SymbolicName>${project.groupId}</Bundle-SymbolicName>
                         <Bundle-Name>${project.name}</Bundle-Name>
                         <Bundle-Version>${project.version}</Bundle-Version>
-                        <Bundle-Activator>${project.groupId}.realisation.Activator</Bundle-Activator>
+                        <Bundle-Activator>${project.groupId}.Activator</Bundle-Activator>
                         <Import-Package>org.osgi.framework</Import-Package>
-                        <Export-Package>${project.groupId}.interfaces</Export-Package>
-                        <Private-Package>${project.groupId}.realisation</Private-Package>
+                        <Export-Package>${project.groupId}</Export-Package>
+                        <Private-Package>${project.groupId}.implementation</Private-Package>
                     </instructions>
                 </configuration>
             </plugin>

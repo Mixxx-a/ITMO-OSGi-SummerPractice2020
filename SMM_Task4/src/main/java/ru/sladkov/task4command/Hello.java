@@ -1,4 +1,4 @@
-package ru.sladkov.task4command.interfaces;
+package ru.sladkov.task4command;
 
 public interface Hello {
     void hello(String text);
