@@ -19,7 +19,7 @@
 *.tar.gz
 *.rar
 
-# IntelliJ IDEA files and folders#
+# IntelliJ IDEA files and folders #
 */.idea/
 *.iml
 
