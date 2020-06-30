@@ -5,10 +5,12 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.URLConnection;
+import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 import java.util.Map;
 
 import org.osgi.service.component.annotations.Component;
+
 import ru.sladkov.task5.utility.HandlersUtility;
 import ru.sladkov.task5.utility.TitleHandler;
 
@@ -26,18 +28,17 @@ public class AiFRSSHandler implements TitleHandler {
         try {
             this.url = new URL("https://aif.ru/rss/news.php");
         } catch (Exception e) {
-            System.out.println(e.getMessage());
+            System.err.println("Exception at AiFRSSHandler() with message: " + e.getMessage());
+            e.printStackTrace();
         }
     }
 
-    public void parse() {
+    public Map<String, Integer> parse() {
+        Map<String, Integer> hashMapOfWords = new HashMap();
         try {
-            Map<String, Integer> hashMapOfWords = new HashMap();
-
-            //URL url = new URL("https://aif.ru/rss/news.php");
             URLConnection con = url.openConnection();
             InputStream is = con.getInputStream();
-            BufferedReader br = new BufferedReader(new InputStreamReader(is));
+            BufferedReader br = new BufferedReader(new InputStreamReader(is, StandardCharsets.UTF_8));
             String rssLine = br.readLine();
             while (rssLine != null) {
                 if (rssLine.startsWith("                <h1>")) {
@@ -49,10 +50,10 @@ public class AiFRSSHandler implements TitleHandler {
                 }
                 rssLine = br.readLine();
             }
-            HandlersUtility.sortAndPrint(hashMapOfWords);
         } catch (Exception e) {
-            System.out.println(e.getMessage());
+            System.err.println("Exception at AiFRSSHandler.parse() with message: " + e.getMessage());
+            e.printStackTrace();
         }
-
+        return hashMapOfWords;
     }
 }

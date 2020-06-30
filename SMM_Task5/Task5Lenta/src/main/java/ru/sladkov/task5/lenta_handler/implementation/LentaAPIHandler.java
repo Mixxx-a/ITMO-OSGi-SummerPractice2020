@@ -9,14 +9,14 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.URLConnection;
+import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.Map;
 
 import org.osgi.service.component.annotations.Component;
+
 import ru.sladkov.task5.utility.HandlersUtility;
 import ru.sladkov.task5.utility.TitleHandler;
-
 
 @Component(name = "LentaAPIHandler", immediate = true,
         property = {
@@ -32,38 +32,33 @@ public class LentaAPIHandler implements TitleHandler {
         try {
             this.url = new URL("https://api.lenta.ru/lists/latest");
         } catch (Exception e) {
-            System.out.println("Exception at LentaAPIHandler() with message: " +
-                    e.getMessage());
+            System.err.println("Exception at public LentaAPIHandler() with message: " + e.getMessage());
+            e.printStackTrace();
         }
     }
 
-    public void parse()  {
+    public Map<String, Integer> parse()  {
+        Map<String, Integer> hashMapOfWords = new HashMap();
         try {
-            Map<String, Integer> hashMapOfWords = new HashMap();
-            //URL url = new URL("https://api.lenta.ru/lists/latest");
             URLConnection con = url.openConnection();
             InputStream is = con.getInputStream();
-            BufferedReader br = new BufferedReader(new InputStreamReader(is));
+            BufferedReader br = new BufferedReader(new InputStreamReader(is, StandardCharsets.UTF_8));
             String jsonString = br.readLine();
 
             Object obj = new JSONParser().parse(jsonString);
             JSONObject jsonObject = (JSONObject) obj;
             JSONArray headlinesArr = (JSONArray) jsonObject.get("headlines");
-            Iterator itr = headlinesArr.iterator();
 
-            while (itr.hasNext()) {
-                JSONObject next = (JSONObject) itr.next();
+            for (Object o : headlinesArr) {
+                JSONObject next = (JSONObject) o;
                 JSONObject info = (JSONObject) next.get("info");
                 String title = info.get("title").toString();
                 HandlersUtility.putWordsInMap(hashMapOfWords, title);
             }
-            HandlersUtility.sortAndPrint(hashMapOfWords);
         } catch (Exception e) {
-            System.out.println("Exception at parse() with message: " +
-                    e.getMessage() + "");
+            System.err.println("Exception at LentaAPIHandler.parse() with message: " + e.getMessage());
             e.printStackTrace();
         }
-
-
+        return hashMapOfWords;
     }
 }

@@ -8,7 +8,7 @@
     <groupId>ru.sladkov.task5.aif_handler</groupId>
     <artifactId>smm_task5AiFHandler</artifactId>
     <packaging>bundle</packaging>
-    <version>1.1.1</version>
+    <version>1.2.0</version>
 
     <name>Aif RSS title handler service</name>
 
@@ -34,22 +34,16 @@
                 <extensions>true</extensions>
                 <configuration>
                     <instructions>
-                        <Bundle-SymbolicName>
-                            ${project.groupId}
-                        </Bundle-SymbolicName>
+                        <Bundle-SymbolicName>${project.groupId}</Bundle-SymbolicName>
                         <Bundle-Name>${project.name}</Bundle-Name>
                         <Bundle-Version>${project.version}</Bundle-Version>
-                        <Bundle-Activator>
-                            ${project.groupId}.Activator
-                        </Bundle-Activator>
+                        <Bundle-Activator>${project.groupId}.Activator</Bundle-Activator>
                         <Import-Package>
                             org.osgi.framework,
                             ru.sladkov.task5.utility
                         </Import-Package>
                         <Export-Package>${project.groupId}</Export-Package>
-                        <Private-Package>
-                            ${project.groupId}.implementation
-                        </Private-Package>
+                        <Private-Package>${project.groupId}.implementation</Private-Package>
                     </instructions>
                 </configuration>
             </plugin>

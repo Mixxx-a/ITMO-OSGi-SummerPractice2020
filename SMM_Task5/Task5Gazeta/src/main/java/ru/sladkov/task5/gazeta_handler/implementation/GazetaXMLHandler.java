@@ -27,40 +27,45 @@ import ru.sladkov.task5.utility.TitleHandler;
 )
 public class GazetaXMLHandler implements TitleHandler {
 
-    private URL url;
+    private String[] tagWords = {"first", "lenta", "lastnews", "politics",
+            "politics_news", "business", "busnews", "social", "social_more",
+            "lifestyle", "lifestyle_news", "tech_articles", "tech_news",
+            "army", "army_news", "comments", "culture", "culture_more",
+            "science", "science_more", "sport", "sportnews", "auto",
+            "autonews", "auto_testdrive", "kolonka", "video"};
 
     public GazetaXMLHandler() {
-        try {
-            this.url = new URL("https://www.gazeta.ru/export/rss/first.xml");
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
+
     }
 
-    public void parse() {
+    public Map<String, Integer> parse() {
+        Map<String, Integer> hashMapOfWords = new HashMap();
         try {
-            Map<String, Integer> hashMapOfWords = new HashMap();
-            //URL url = new URL("https://www.gazeta.ru/export/rss/first.xml");
-            URLConnection con = url.openConnection();
-            InputStream is = con.getInputStream();
+            for (String tagWord: tagWords) {
+                String site = "https://www.gazeta.ru/export/rss/" + tagWord + ".xml";
+                URL url = new URL(site);
+                URLConnection con = url.openConnection();
+                InputStream is = con.getInputStream();
 
-            DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
-            DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
-            Document doc = dBuilder.parse(is);
+                DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+                DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
+                Document doc = dBuilder.parse(is);
 
-            NodeList itemList = doc.getElementsByTagName("item");
-            for (int i = 0; i < itemList.getLength(); i++) {
-                Node item = itemList.item(i);
-                Element element = (Element)item;
-                String title = element
-                        .getElementsByTagName("title")
-                        .item(0)
-                        .getTextContent();
-                HandlersUtility.putWordsInMap(hashMapOfWords, title);
+                NodeList itemList = doc.getElementsByTagName("item");
+                for (int i = 0; i < itemList.getLength(); i++) {
+                    Node item = itemList.item(i);
+                    Element element = (Element)item;
+                    String title = element
+                            .getElementsByTagName("title")
+                            .item(0)
+                            .getTextContent();
+                    HandlersUtility.putWordsInMap(hashMapOfWords, title);
+                }
             }
-            HandlersUtility.sortAndPrint(hashMapOfWords);
         } catch (Exception e) {
-            System.out.println(e.getMessage());
+            System.err.println("Exception at GazetaXMLHandler.parse() with message: " + e.getMessage());
+            e.printStackTrace();
         }
+        return hashMapOfWords;
     }
 }

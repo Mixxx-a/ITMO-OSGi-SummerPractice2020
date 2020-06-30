@@ -8,7 +8,7 @@
     <groupId>ru.sladkov.task5.lenta_handler</groupId>
     <artifactId>smm_task5LentaHandler</artifactId>
     <packaging>bundle</packaging>
-    <version>1.1.1</version>
+    <version>1.2.0</version>
 
     <name>Lenta API title handler service</name>
 
@@ -54,6 +54,7 @@
                             org.json.simple.parser
                         </Import-Package>
                         <Export-Package>${project.groupId}</Export-Package>
+                        <Private-Package>${project.groupId}.implementation</Private-Package>
                     </instructions>
                 </configuration>
             </plugin>

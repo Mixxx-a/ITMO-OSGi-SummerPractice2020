@@ -1,6 +1,8 @@
 package ru.sladkov.task5.utility;
 
+import java.util.Map;
+
 public interface TitleHandler {
 
-     void parse();
+     Map<String, Integer> parse();
 }
