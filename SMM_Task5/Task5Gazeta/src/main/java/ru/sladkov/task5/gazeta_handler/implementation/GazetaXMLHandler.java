@@ -27,30 +27,40 @@ import ru.sladkov.task5.utility.TitleHandler;
 )
 public class GazetaXMLHandler implements TitleHandler {
 
-    public GazetaXMLHandler() {
+    private URL url;
 
+    public GazetaXMLHandler() {
+        try {
+            this.url = new URL("https://www.gazeta.ru/export/rss/first.xml");
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
     }
 
-    public void parse() throws Exception {
-        Map<String, Integer> hashMapOfWords = new HashMap();
-        URL url = new URL("https://www.gazeta.ru/export/rss/first.xml");
-        URLConnection con = url.openConnection();
-        InputStream is = con.getInputStream();
+    public void parse() {
+        try {
+            Map<String, Integer> hashMapOfWords = new HashMap();
+            //URL url = new URL("https://www.gazeta.ru/export/rss/first.xml");
+            URLConnection con = url.openConnection();
+            InputStream is = con.getInputStream();
 
-        DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
-        DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
-        Document doc = dBuilder.parse(is);
+            DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+            DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
+            Document doc = dBuilder.parse(is);
 
-        NodeList itemList = doc.getElementsByTagName("item");
-        for (int i = 0; i < itemList.getLength(); i++) {
-            Node item = itemList.item(i);
-            Element element = (Element)item;
-            String title = element
-                    .getElementsByTagName("title")
-                    .item(0)
-                    .getTextContent();
-            HandlersUtility.putWordsInMap(hashMapOfWords, title);
+            NodeList itemList = doc.getElementsByTagName("item");
+            for (int i = 0; i < itemList.getLength(); i++) {
+                Node item = itemList.item(i);
+                Element element = (Element)item;
+                String title = element
+                        .getElementsByTagName("title")
+                        .item(0)
+                        .getTextContent();
+                HandlersUtility.putWordsInMap(hashMapOfWords, title);
+            }
+            HandlersUtility.sortAndPrint(hashMapOfWords);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
         }
-        HandlersUtility.sortAndPrint(hashMapOfWords);
     }
 }

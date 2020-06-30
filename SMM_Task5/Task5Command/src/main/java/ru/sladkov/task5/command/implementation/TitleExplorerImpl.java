@@ -42,7 +42,7 @@ public class TitleExplorerImpl implements TitleExplorer {
     }
 
 
-    public void stats(int option) throws Exception {
+    public void stats(int option) {
         switch (option) {
             case 1:
                 parse(lentaHandler);
@@ -66,13 +66,11 @@ public class TitleExplorerImpl implements TitleExplorer {
     void parse(TitleHandler handler) {
         System.out.println("Trying to parse()");
         try {
-            System.out.println("Here is invocationTargetException");
             handler.parse();
-            System.out.println("WTF");
-        } catch (InvocationTargetException exception) {
-            System.out.println(exception.getCause() + "; " + exception.getTargetException());
         } catch (Exception e) {
-            System.out.println(e.getMessage());
+            System.out.println("Exception at handler.parse() with message: " +
+                    e.getMessage());
+            e.printStackTrace();
         }
        // Map<String, Integer> mapOfWords = new HashMap<>(handler.parse());
         System.out.println("After parse()");

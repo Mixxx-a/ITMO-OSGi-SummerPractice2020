@@ -28,13 +28,17 @@ public class LentaAPIHandler implements TitleHandler {
 
     private URL url;
 
-    public LentaAPIHandler() throws Exception {
-        this.url = new URL("https://api.lenta.ru/lists/latest");
+    public LentaAPIHandler() {
+        try {
+            this.url = new URL("https://api.lenta.ru/lists/latest");
+        } catch (Exception e) {
+            System.out.println("Exception at LentaAPIHandler() with message: " +
+                    e.getMessage());
+        }
     }
 
     public void parse()  {
         try {
-            System.out.println(1);
             Map<String, Integer> hashMapOfWords = new HashMap();
             //URL url = new URL("https://api.lenta.ru/lists/latest");
             URLConnection con = url.openConnection();
@@ -53,10 +57,11 @@ public class LentaAPIHandler implements TitleHandler {
                 String title = info.get("title").toString();
                 HandlersUtility.putWordsInMap(hashMapOfWords, title);
             }
-
             HandlersUtility.sortAndPrint(hashMapOfWords);
         } catch (Exception e) {
-            System.out.println(e.getMessage());
+            System.out.println("Exception at parse() with message: " +
+                    e.getMessage() + "");
+            e.printStackTrace();
         }
 
 

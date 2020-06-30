@@ -6,8 +6,6 @@ import org.osgi.framework.BundleContext;
 public class Activator implements BundleActivator {
 
     public void start(BundleContext bundleContext) throws Exception {
-        bundleContext.registerService(HandlersUtility.class.getName(),
-                new HandlersUtility(), null);
         System.out.println("Utility for title handler services STARTED!");
     }
 
