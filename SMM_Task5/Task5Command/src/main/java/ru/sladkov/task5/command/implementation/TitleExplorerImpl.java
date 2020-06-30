@@ -45,19 +45,14 @@ public class TitleExplorerImpl implements TitleExplorer {
     public void stats(int option) throws Exception {
         switch (option) {
             case 1:
-                try {
-                    lentaHandler.parse();
-                } catch (java.lang.reflect.InvocationTargetException e) {
-                    System.out.println(e.getCause().getMessage() + e.getTargetException().getMessage());
-                }
-
+                parse(lentaHandler);
                 break;
             case 2:
-                aifHandler.parse();
+                parse(aifHandler);
                 break;
             case 3:
                 System.out.println("Trying to parse");
-                gazetaHandler.parse();
+                parse(gazetaHandler);
                 break;
             case 4:
                 //parseAll();

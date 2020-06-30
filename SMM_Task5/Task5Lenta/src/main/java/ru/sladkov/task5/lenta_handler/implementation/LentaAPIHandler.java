@@ -32,7 +32,7 @@ public class LentaAPIHandler implements TitleHandler {
         this.url = new URL("https://api.lenta.ru/lists/latest");
     }
 
-    public void parse() throws Exception {
+    public void parse()  {
         try {
             System.out.println(1);
             Map<String, Integer> hashMapOfWords = new HashMap();
