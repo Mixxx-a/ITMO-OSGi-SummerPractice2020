@@ -7,9 +7,9 @@
     <groupId>ru.sladkov.task3service</groupId>
     <artifactId>smm_Task3Service</artifactId>
     <packaging>bundle</packaging>
-    <version>3.0.1</version>
+    <version>3.0.2</version>
 
-    <name>OSGI Multi-Service</name>
+    <name>OSGI Hello Annotation Service</name>
 
     <dependencies>
         <dependency>
@@ -33,13 +33,19 @@
                 <extensions>true</extensions>
                 <configuration>
                     <instructions>
-                        <Bundle-SymbolicName>${project.groupId}</Bundle-SymbolicName>
+                        <Bundle-SymbolicName>
+                            ${project.groupId}
+                        </Bundle-SymbolicName>
                         <Bundle-Name>${project.name}</Bundle-Name>
                         <Bundle-Version>${project.version}</Bundle-Version>
-                        <Bundle-Activator>${project.groupId}.Activator</Bundle-Activator>
+                        <Bundle-Activator>
+                            ${project.groupId}.Activator
+                        </Bundle-Activator>
                         <Import-Package>org.osgi.framework</Import-Package>
                         <Export-Package>${project.groupId}</Export-Package>
-                        <Private-Package>${project.groupId}.implementation</Private-Package>
+                        <Private-Package>
+                            ${project.groupId}.implementation
+                        </Private-Package>
                     </instructions>
                 </configuration>
             </plugin>

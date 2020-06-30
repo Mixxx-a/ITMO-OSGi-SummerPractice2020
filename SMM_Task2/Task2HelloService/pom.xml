@@ -4,10 +4,10 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>task2.helloservice</groupId>
+    <groupId>ru.sladkov.task2service</groupId>
     <artifactId>smm_Task2HelloSevice</artifactId>
     <packaging>bundle</packaging>
-    <version>1.1.1</version>
+    <version>1.1.2</version>
 
     <name>OSGI Hello Service</name>
 
@@ -24,21 +24,26 @@
             <plugin>
                 <groupId>org.apache.felix</groupId>
                 <artifactId>maven-bundle-plugin</artifactId>
-                <version>1.4.0</version>
+                <version>4.2.1</version>
                 <extensions>true</extensions>
                 <configuration>
                     <instructions>
-                        <Bundle-SymbolicName>ru.sladkov.task2service</Bundle-SymbolicName>
-                        <Bundle-Name>OSGI Hello Service</Bundle-Name>
-                        <Bundle-Version>1.1.1</Bundle-Version>
-                        <Bundle-Activator>ru.sladkov.task2service.realisation.Activator</Bundle-Activator>
+                        <Bundle-SymbolicName>
+                            ${project.groupId}
+                        </Bundle-SymbolicName>
+                        <Bundle-Name>${project.name}</Bundle-Name>
+                        <Bundle-Version>${project.version}</Bundle-Version>
+                        <Bundle-Activator>
+                            ${project.groupId}.Activator
+                        </Bundle-Activator>
                         <Import-Package>org.osgi.framework</Import-Package>
-                        <Export-Package>ru.sladkov.task2service.interfaces</Export-Package>
-                        <Private-Package>ru.sladkov.task2service.realisation</Private-Package>
+                        <Export-Package>${project.groupId}</Export-Package>
+                        <Private-Package>
+                            ${project.groupId}.implementation
+                        </Private-Package>
                     </instructions>
                 </configuration>
             </plugin>
-
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -49,7 +54,4 @@
             </plugin>
         </plugins>
     </build>
-
-
-
 </project>

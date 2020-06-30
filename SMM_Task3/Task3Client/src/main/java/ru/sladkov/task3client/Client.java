@@ -1,6 +1,7 @@
 package ru.sladkov.task3client;
 
 import org.osgi.service.component.annotations.*;
+
 import ru.sladkov.task3service.Greeting;
 
 @Component
@@ -16,13 +17,4 @@ public class Client {
         System.out.println("Calling Greeting.sayhello()");
         hello.sayHello();
     }
-
-    @Reference
-    public void sayHello(Greeting hi) {
-        System.out.println(hi.toString());
-    }
-
-
-
-
 }

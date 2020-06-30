@@ -21,7 +21,8 @@ public class Activator implements BundleActivator {
         props.put("osgi.command.scope", "practice");
         props.put("osgi.command.function", new String[] {"hello"});
 
-        bundleContext.registerService(Hello.class.getName(), new HelloImpl(), props);
+        bundleContext.registerService(Hello.class.getName(), new HelloImpl(),
+                props);
         System.out.println("Command \"practice:hello\" started");
     }
 

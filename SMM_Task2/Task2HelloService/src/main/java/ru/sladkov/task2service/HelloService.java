@@ -1,5 +1,6 @@
-package ru.sladkov.task2service.interfaces;
+package ru.sladkov.task2service;
 
 public interface HelloService {
+
     void sayHello();
 }

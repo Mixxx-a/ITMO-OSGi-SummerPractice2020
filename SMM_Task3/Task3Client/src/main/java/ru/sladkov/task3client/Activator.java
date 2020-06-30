@@ -7,11 +7,9 @@ public class Activator implements BundleActivator {
 
     public void start(BundleContext bundleContext) throws Exception {
         System.out.println("Client started");
-
     }
 
     public void stop(BundleContext bundleContext) throws Exception {
         System.out.println("Client stopped");
     }
-
 }
