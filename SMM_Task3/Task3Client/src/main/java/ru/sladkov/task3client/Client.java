@@ -7,10 +7,6 @@ import ru.sladkov.task3service.Greeting;
 @Component
 public class Client {
 
-    @Activate
-    protected void onActivate() {
-        System.out.println("onActivate");
-    }
 
     @Reference
     public void setGreeter(Greeting hello) {

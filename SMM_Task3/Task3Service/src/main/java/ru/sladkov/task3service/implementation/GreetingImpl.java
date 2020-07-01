@@ -4,7 +4,7 @@ import org.osgi.service.component.annotations.Component;
 
 import ru.sladkov.task3service.Greeting;
 
-@Component
+@Component(service = Greeting.class)
 public class GreetingImpl implements Greeting {
 
     private String name;
