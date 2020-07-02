@@ -61,4 +61,8 @@ public class LentaAPIHandler implements TitleHandler {
         }
         return hashMapOfWords;
     }
+
+    public String getSiteName() {
+        return "Lenta";
+    }
 }

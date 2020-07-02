@@ -56,4 +56,8 @@ public class AiFRSSHandler implements TitleHandler {
         }
         return hashMapOfWords;
     }
+
+    public String getSiteName() {
+        return "AiF";
+    }
 }

@@ -8,7 +8,7 @@
     <groupId>ru.sladkov.task5.utility</groupId>
     <artifactId>smm_task5utility</artifactId>
     <packaging>bundle</packaging>
-    <version>1.2.0</version>
+    <version>2.0.0</version>
 
     <name>Utility for title handler services</name>
 

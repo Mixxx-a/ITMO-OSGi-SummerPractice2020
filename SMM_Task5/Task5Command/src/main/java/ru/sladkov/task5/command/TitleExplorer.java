@@ -4,5 +4,5 @@ public interface TitleExplorer {
 
     void stats();
 
-    void stats(int option);
+    void stats(String option);
 }

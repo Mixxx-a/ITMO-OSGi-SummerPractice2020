@@ -68,4 +68,8 @@ public class GazetaXMLHandler implements TitleHandler {
         }
         return hashMapOfWords;
     }
+
+    public String getSiteName() {
+        return "Gazeta";
+    }
 }
