@@ -8,8 +8,8 @@ import java.util.*;
 @Component
 public class HandlersUtility {
 
-    static int WORDS_TO_DISPLAY = 10;
-    static int WORDS_LENGTH_LOWER_LIMIT = 2;
+    public static int WORDS_TO_DISPLAY = 10;
+    public static int WORDS_LENGTH_LOWER_LIMIT = 2;
 
     public HandlersUtility() {
 

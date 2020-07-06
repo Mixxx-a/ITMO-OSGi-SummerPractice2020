@@ -50,13 +50,15 @@ public class TitleExplorerImpl implements TitleExplorer {
 
     public void stats(String option) {
         if ((option.equals("all")) && (nameList.size() > 1)) {
-            System.out.println("10 самых встречающихся слов в заголовках доступных в системе порталов:");
+            System.out.println("10 самых встречающихся слов в заголовках доступных в системе порталов длинной более "
+                    + HandlersUtility.WORDS_LENGTH_LOWER_LIMIT + " символов");
             parseAll();
             return;
         }
         int parserIndex = nameList.indexOf(option);
         if (parserIndex != -1) {
-            System.out.println("10 самых встречающихся слов в заголовках на портале " + option);
+            System.out.println("10 самых встречающихся слов в заголовках на портале " + option + " длинной более "
+                    + HandlersUtility.WORDS_LENGTH_LOWER_LIMIT + " символов");
             HandlersUtility.sortAndPrint(parsersList.get(parserIndex).parse());
         } else {
             System.out.println("Неправильный аргумент.");
